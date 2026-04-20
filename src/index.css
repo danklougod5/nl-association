@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #10b981;
+  --color-primary-light: #ecfdf5;
+  --color-primary-dark: #064e3b;
+  --color-action: #f97316;
+  --color-action-hover: #ea580c;
+  --color-success: #10b981;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-bg-soft: #f8fafc;
+  --color-border: #e2e8f0;
+  
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  
+  --radius-4xl: 2rem;
+  --radius-5xl: 3rem;
+  --radius-6xl: 4rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-text font-sans antialiased overflow-x-hidden;
+  }
+  h1, h2, h3, h4 {
+    @apply font-extrabold tracking-tight leading-tight;
+  }
+}
+
+/* --- Custom Utilities --- */
+
+.glass-nav {
+  @apply fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-6xl backdrop-blur-xl border border-white/10 rounded-full px-8 py-4 z-50 transition-all duration-500 flex justify-between items-center;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-scrolled {
+  @apply top-0 w-full max-w-none rounded-none py-4 px-12 shadow-2xl;
+  background: rgba(15, 23, 42, 0.98);
+}
+
+.btn-primary {
+  @apply bg-action text-white px-7 py-3 rounded-full font-bold transition-all duration-300 inline-flex items-center gap-2 shadow-[0_4px_14px_0_rgba(249,115,22,0.39)] hover:bg-action-hover hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(249,115,22,0.23)];
+}
+
+.badge {
+  @apply bg-primary-light text-primary px-4 py-2 rounded-full font-bold text-sm inline-flex items-center gap-2 mb-8 border border-primary/20;
+}
+
+/* --- Project Card Glass Effect --- */
+.project-card-glass {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  @apply border border-white/5 shadow-2xl;
+}
+
+.project-info-glass {
+  background: rgba(15, 23, 42, 0.5);
+  @apply backdrop-blur-3xl;
+}
+
+/* --- Testimonials Scroll --- */
+.testimonials-scroll {
+  @apply flex gap-8 overflow-x-auto py-8 px-2;
+  scrollbar-width: none;
+}
+.testimonials-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease forwards;
+}
